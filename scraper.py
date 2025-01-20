@@ -3,9 +3,9 @@ import json
 
 import tls_client
 
-from base import logger
+from base import logger, proxy_map
 from namings import QUERY_DETAILS_MAP
-from session_maker import SessionMaker
+from browser_session import BrowserSession
 
 
 def get_nested_key(data, target_key):
@@ -42,7 +42,7 @@ class OpenSeaScraper:
 
     def __init__(self, request_names: list[str]):
         self.request_names = request_names
-        self.session_maker = SessionMaker(self.request_names)
+        self.session_maker = BrowserSession(self.request_names)
 
         # If we haven't request details stored yet
         if os.path.getsize(self.SAVED_REQUEST_FILE_PATH) == 0:
@@ -53,6 +53,9 @@ class OpenSeaScraper:
             client_identifier="chrome_112",  # Mimics Chrome v112
             random_tls_extension_order=True,  # Randomize TLS extension order
         )
+
+        # Set up proxy session
+        self.session.proxies = proxy_map
 
         # Load the saved request details
         with open(self.SAVED_REQUEST_FILE_PATH, "r") as file:

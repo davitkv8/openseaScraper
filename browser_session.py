@@ -11,7 +11,11 @@ from namings import QUERY_DETAILS_MAP
 
 
 class BrowserSession:
-    """Session maker class."""
+    """
+    Creates browser session, fetches request signature and saves to json file.
+
+    That signature can be used with tls client requests.
+    """
 
     GRAPHQL_BACKEND_API_URL = "https://opensea.io/__api/graphql/"
 
