@@ -3,8 +3,8 @@ import json
 
 import tls_client
 
-from base import logger, proxy_map
-from namings import QUERY_DETAILS_MAP
+from base import logger
+from namings import QUERY_DETAILS_MAP, AvailableQueries
 from browser_session import BrowserSession
 
 
@@ -40,7 +40,7 @@ class OpenSeaScraper:
 
     SAVED_REQUEST_FILE_PATH = "saved_request.json"
 
-    def __init__(self, request_names: list[str]):
+    def __init__(self, request_names: AvailableQueries):
         self.request_names = request_names
         self.session_maker = BrowserSession(self.request_names)
 
@@ -54,9 +54,6 @@ class OpenSeaScraper:
             random_tls_extension_order=True,  # Randomize TLS extension order
         )
 
-        # Set up proxy session
-        self.session.proxies = proxy_map
-
         # Load the saved request details
         with open(self.SAVED_REQUEST_FILE_PATH, "r") as file:
             self.saved_request = json.load(file)
@@ -69,12 +66,15 @@ class OpenSeaScraper:
         for request_name in self.request_names:
             request_body = QUERY_DETAILS_MAP[request_name]["body"]
             request_details = self.saved_request[request_name]
+            proxy_map = request_details["proxy_map"]
 
             # Extract details from the saved request
             url = request_details["url"]
             method = request_details["method"]
             headers = request_details["headers"]
             cookies = {cookie["name"]: cookie["value"] for cookie in request_details["cookies"]}
+
+            self.session.proxies = proxy_map
 
             if method == "POST":
                 response = self.session.post(

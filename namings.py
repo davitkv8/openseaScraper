@@ -1,5 +1,21 @@
 """Module containing Graphql queries/mutations and describes all the essential details."""
+from enum import Enum
+from typing import TypedDict, Literal
 
+# Available queries, add any queries here first before adding it in QUERY_DETAILS_MAP
+AvailableQueries = list[Literal["TOP_RANKINGS", "TRENDING_RANKINGS"]]
+
+
+class QueryDetails[TypedDict]:
+    """Required details about the query that user should provide before adding it."""
+
+    accessor_page_url: str  # Page url which communicates with specific graphql API
+    body: dict  # Request body (Usually it's just dict containing Graphql query/mutation details)
+    response_key: str  # Response key, a top level key returned by Graphql API as a response
+    query_name: str  # Just Graphql query/mutation name
+
+
+# Add available query details, so system will automatically handle it all.
 QUERY_DETAILS_MAP = {
     # Graphql query for top items - maximum 100 result, all time
     "TOP_RANKINGS": {
