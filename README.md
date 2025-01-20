@@ -46,3 +46,9 @@
     1) pip install -r requirements.txt
     2) python main.py
 ```
+
+# Take into account
+```
+    During the lot of experiments, I was banned. So I'm using residential proxies in the project.
+    it has just 1GB usage limitation :) 
+```
