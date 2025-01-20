@@ -19,12 +19,56 @@ class BrowserSession:
 
     GRAPHQL_BACKEND_API_URL = "https://opensea.io/__api/graphql/"
 
-    def __init__(self, request_names: list[str], timeout: int = 5000):
-        self.request_names = request_names
+    def __init__(self, request_name: str, timeout: int = 5000):
+        self.request_name = request_name
         self.timeout = timeout
 
+    def run(self):
+        """Runner function."""
 
-    def handle_route(self, route, request, context, request_key):
+        with sync_playwright() as p:
+            proxy_parts = proxy_map["https"].split("://")[1].split("@")
+            proxy_credentials = proxy_parts[0]  # username:password
+            proxy_server = proxy_parts[1]  # host:port
+            username, password = proxy_credentials.split(":")
+            server = f"https://{proxy_server}"
+
+            browser = p.chromium.launch(
+                proxy={
+                    "server": server,  # Proxy server address
+                    "username": username,  # Proxy username
+                    "password": password  # Proxy password
+                },
+                args=[
+                    "--headless=new",
+                    "--disable-gpu",
+                    "--disable-background-timer-throttling",
+                    "--disable-backgrounding-occluded-windows",
+                    "--disable-renderer-backgrounding",
+                    "--disable-blink-features=AutomationControlled",
+                    "--remote-debugging-port=9222"
+                ]
+            )
+            context = browser.new_context(
+                java_script_enabled=True,
+                record_har_path="network.har",
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36",
+            )
+            page = context.new_page()
+
+            # Register handlers simultaneously
+            page_url = QUERY_DETAILS_MAP[self.request_name]["accessor_page_url"]
+            page.route("**/__api/graphql/**", lambda route, request: self._handle_route(route, request, context, self.request_name))
+            page.goto(page_url, wait_until="domcontentloaded")
+            time.sleep(1)
+
+            page.wait_for_timeout(self.timeout)  # Wait for network activity
+
+            logger.info("Timeout reached, closing browser...")
+            context.close()
+            browser.close()
+
+    def _handle_route(self, route, request, context, request_key):
         """Function to intercept, track and modify targeted request."""
 
         if request.url == self.GRAPHQL_BACKEND_API_URL and request.method == "POST":
@@ -46,44 +90,10 @@ class BrowserSession:
                 # modified_payload = json.loads(post_data)
                 # modified_payload["variables"]["timeWindow"] = "ALL_TIME"
                 # modified_payload["variables"]["count"] = 100
-                return
             else:
                 route.continue_()
         else:
             route.continue_()
-
-    def run(self):
-        """Runner function."""
-
-        with sync_playwright() as p:
-            proxy_parts = proxy_map["https"].split("://")[1].split("@")
-            proxy_credentials = proxy_parts[0]  # username:password
-            proxy_server = proxy_parts[1]  # host:port
-            username, password = proxy_credentials.split(":")
-            server = f"https://{proxy_server}"
-
-            browser = p.chromium.launch(
-                headless=False,
-                proxy={
-                    "server": server,  # Proxy server address
-                    "username": username,  # Proxy username
-                    "password": password  # Proxy password
-                }
-            )
-            context = browser.new_context()
-            page = context.new_page()
-
-            # Register handlers simultaneously
-            for request_name in self.request_names:
-                page_url = QUERY_DETAILS_MAP[request_name]["accessor_page_url"]
-                page.route("**/__api/graphql/**", lambda route, request: self.handle_route(route, request, context, request_name))
-                page.goto(page_url)
-                time.sleep(1)
-
-            page.wait_for_timeout(self.timeout)  # Wait for network activity for 10 seconds
-
-            logger.info("Timeout reached, closing browser...")
-            browser.close()
 
     def _save_request_details(self, request_key, request_details):
         """Function saves request details into json file."""

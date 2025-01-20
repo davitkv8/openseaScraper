@@ -1,0 +1,145 @@
+{
+    "TOP_RANKINGS": {
+        "url": "https://opensea.io/__api/graphql/",
+        "method": "POST",
+        "headers": {
+            "accept": "*/*",
+            "content-type": "application/json",
+            "cookie": "__os_session=eyJpZCI6ImNlZGY3Mzg2LWFlZGItNDAwNy04NjE5LTE4YTlhYzEwZTMxMiJ9; __os_session.sig=MUjRmUwzxdByLUJbbxVjFN51vRJ09e4ZJY4ACV5jCLE; __cf_bm=Y0A61PXQJJ.iyjgISE7K3N1ID8EeiOf.RtMslWHDv40-1737373081-1.0.1.1-JFqVp_3F9WixpTVrm6BL7XyWNfAMuZ.9qzaAE13PEvdhqENmPCff3I.E5AjYkGlKuyxa34TXQwveCaV01F4l8A; _cfuvid=ASH7qEJDV5tUvzywJX9J4_DKIwZfdIpU8VEa1wi0AyM-1737373081206-0.0.1.1-604800000; _dd_s=rum=0&expire=1737373983090; device_id=%225849dd59-2172-47cd-9407-200d56e37b06%22; AMP_MKTG_ddd6ece4d5=JTdCJTdE; AMP_ddd6ece4d5=JTdCJTIyZGV2aWNlSWQlMjIlM0ElMjI1ODQ5ZGQ1OS0yMTcyLTQ3Y2QtOTQwNy0yMDBkNTZlMzdiMDYlMjIlMkMlMjJzZXNzaW9uSWQlMjIlM0ExNzM3MzczMDgzNjAwJTJDJTIyb3B0T3V0JTIyJTNBZmFsc2UlMkMlMjJsYXN0RXZlbnRUaW1lJTIyJTNBMTczNzM3MzA4MzgwOSUyQyUyMmxhc3RFdmVudElkJTIyJTNBMSU3RA==; ext-os-wallet={%22installedWallets%22:[]%2C%22theme%22:%22light%22%2C%22deviceId%22:%225849dd59-2172-47cd-9407-200d56e37b06%22}",
+            "origin": "https://opensea.io",
+            "referer": "https://opensea.io/",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36",
+            "x-build-id": "9a95c67df5781dd2a51fe235f361a501d097c8c3",
+            "sec-ch-ua": "\"HeadlessChrome\";v=\"131\", \"Chromium\";v=\"131\", \"Not_A Brand\";v=\"24\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "x-app-id": "opensea-web",
+            "x-signed-query": "3f66478347316ba769d9f55425c2974791bd4980bd2d9158b1a2a2e764355674"
+        },
+        "cookies": [
+            {
+                "name": "__os_session",
+                "value": "eyJpZCI6ImNlZGY3Mzg2LWFlZGItNDAwNy04NjE5LTE4YTlhYzEwZTMxMiJ9",
+                "domain": "opensea.io",
+                "path": "/",
+                "expires": 1771933081.415583,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "__os_session.sig",
+                "value": "MUjRmUwzxdByLUJbbxVjFN51vRJ09e4ZJY4ACV5jCLE",
+                "domain": "opensea.io",
+                "path": "/",
+                "expires": 1771933081.415722,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "__cf_bm",
+                "value": "Y0A61PXQJJ.iyjgISE7K3N1ID8EeiOf.RtMslWHDv40-1737373081-1.0.1.1-JFqVp_3F9WixpTVrm6BL7XyWNfAMuZ.9qzaAE13PEvdhqENmPCff3I.E5AjYkGlKuyxa34TXQwveCaV01F4l8A",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": 1737374881.415743,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "None"
+            },
+            {
+                "name": "_cfuvid",
+                "value": "ASH7qEJDV5tUvzywJX9J4_DKIwZfdIpU8VEa1wi0AyM-1737373081206-0.0.1.1-604800000",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": -1,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "None"
+            },
+            {
+                "name": "_dd_s",
+                "value": "rum=0&expire=1737373983090",
+                "domain": "opensea.io",
+                "path": "/",
+                "expires": 1737373983,
+                "httpOnly": false,
+                "secure": true,
+                "sameSite": "Strict"
+            },
+            {
+                "name": "device_id",
+                "value": "%225849dd59-2172-47cd-9407-200d56e37b06%22",
+                "domain": "opensea.io",
+                "path": "/",
+                "expires": 1771933083,
+                "httpOnly": false,
+                "secure": true,
+                "sameSite": "Strict"
+            },
+            {
+                "name": "AMP_MKTG_ddd6ece4d5",
+                "value": "JTdCJTdE",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": 1768909083,
+                "httpOnly": false,
+                "secure": false,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "AMP_ddd6ece4d5",
+                "value": "JTdCJTIyZGV2aWNlSWQlMjIlM0ElMjI1ODQ5ZGQ1OS0yMTcyLTQ3Y2QtOTQwNy0yMDBkNTZlMzdiMDYlMjIlMkMlMjJzZXNzaW9uSWQlMjIlM0ExNzM3MzczMDgzNjAwJTJDJTIyb3B0T3V0JTIyJTNBZmFsc2UlMkMlMjJsYXN0RXZlbnRUaW1lJTIyJTNBMTczNzM3MzA4MzgwOSUyQyUyMmxhc3RFdmVudElkJTIyJTNBMSU3RA==",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": 1768909086,
+                "httpOnly": false,
+                "secure": false,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "_dd_s",
+                "value": "rum=0&expire=1737373986370",
+                "domain": "wallets.opensea.io",
+                "path": "/",
+                "expires": 1737373986,
+                "httpOnly": false,
+                "secure": false,
+                "sameSite": "Strict"
+            },
+            {
+                "name": "ext-os-wallet",
+                "value": "{%22installedWallets%22:[]%2C%22theme%22:%22light%22%2C%22deviceId%22:%225849dd59-2172-47cd-9407-200d56e37b06%22}",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": -1,
+                "httpOnly": false,
+                "secure": false,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "cf_clearance",
+                "value": "bqPcrMjr46AsSnPu2dkCAGtmoZhaZosPLOhOutnKZbM-1737373086-1.2.1.1-Pc_TcjbYijC43_BPMn4C47NMiRml33g9TNlfUJV17CuJA68ba_jxf2q02heaFZpK4tPzCu4N8e5gtjOWEKIBvv1btu1wS3TT1S_u51fvMYeG0HmAf_W.jZJkKVT9PgX6s9RKKoIbm.qZ0ccPfgThPAIZISupVDh3PcDp7P_m_0IQyYHEVGfPC3IA6lVxp90.IbPMZxjHYtwKeoOBgV8MfTnNhUyMBTxSZFm1mK_UbMl.KV7MQvo7idQ8CQQGYWLyt7NKGIWP1vWee.ykfkUAt_DLEHPC42NX46d57eflSQs",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": 1768909086.863679,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "None"
+            }
+        ],
+        "post_data": {
+            "id": "RankingsPageTopQuery",
+            "query": "query RankingsPageTopQuery(\n  $chain: [ChainScalar!]\n  $count: Int!\n  $cursor: String\n  $topCollectionsSortBy: TrendingCollectionSort\n  $categories: [CategoryV2Slug!]!\n  $timeWindow: StatsTimeWindow\n  $floorPricePercentChange: Boolean!\n) {\n  ...RankingsPageTop_data\n}\n\nfragment RankingsPageTop_data on Query {\n  topCollectionsByCategory(after: $cursor, chains: $chain, first: $count, sortBy: $topCollectionsSortBy, categories: $categories) {\n    edges {\n      node {\n        createdDate\n        name\n        slug\n        logo\n        isVerified\n        relayId\n        ...StatsCollectionCell_collection\n        ...collection_url\n        statsV2 {\n          totalQuantity\n        }\n        windowCollectionStats(statsTimeWindow: $timeWindow) {\n          floorPrice {\n            unit\n            eth\n            symbol\n          }\n          numOwners\n          totalSupply\n          totalListed\n          numOfSales\n          volumeChange\n          volume {\n            eth\n            unit\n            symbol\n          }\n        }\n        floorPricePercentChange(statsTimeWindow: $timeWindow) @include(if: $floorPricePercentChange)\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StatsCollectionCell_collection on CollectionType {\n  name\n  logo\n  isVerified\n  slug\n}\n\nfragment collection_url on CollectionType {\n  slug\n  isCategory\n}\n",
+            "variables": {
+                "chain": null,
+                "count": 100,
+                "cursor": null,
+                "topCollectionsSortBy": "ONE_HOUR_VOLUME",
+                "categories": [],
+                "timeWindow": "ONE_HOUR",
+                "floorPricePercentChange": true
+            }
+        }
+    }
+}
