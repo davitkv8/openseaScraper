@@ -2,16 +2,15 @@
 
 import time
 import json
-import sys
 import os
 
 from playwright.sync_api import sync_playwright
 
-from base import logger
+from base import logger, proxy_map
 from namings import QUERY_DETAILS_MAP
 
 
-class SessionMaker:
+class BrowserSession:
     """Session maker class."""
 
     GRAPHQL_BACKEND_API_URL = "https://opensea.io/__api/graphql/"
@@ -53,11 +52,22 @@ class SessionMaker:
         """Runner function."""
 
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=False)
+            proxy_parts = proxy_map["https"].split("://")[1].split("@")
+            proxy_credentials = proxy_parts[0]  # username:password
+            proxy_server = proxy_parts[1]  # host:port
+            username, password = proxy_credentials.split(":")
+            server = f"https://{proxy_server}"
+
+            browser = p.chromium.launch(
+                headless=False,
+                proxy={
+                    "server": server,  # Proxy server address
+                    "username": username,  # Proxy username
+                    "password": password  # Proxy password
+                }
+            )
             context = browser.new_context()
             page = context.new_page()
-
-            print(self.request_names)
 
             # Register handlers simultaneously
             for request_name in self.request_names:
