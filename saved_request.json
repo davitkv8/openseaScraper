@@ -1,113 +1,125 @@
 {
-  "url": "https://opensea.io/__api/graphql/",
-  "method": "POST",
-  "headers": {
-    "accept": "*/*",
-    "content-type": "application/json",
-    "cookie": "__os_session=eyJpZCI6IjczYzRhZGY0LWU4OTUtNGE2NC04MDA3LTg4MjE1MzhlMDU3NSJ9; __os_session.sig=Fdbbmopw7ertg14_jrg4XDDxFsz4PfsRgRJ9rT4799M; __cf_bm=lztdB5l.046eqegKWxw3aD4ash2CerJlz8cfCWuz5eg-1737307894-1.0.1.1-xHFpfzhLOydQQTvegmg7pVAai2auVnDx1s2HtbEb5XNZPSD_BBvilPBU4bGuD_Oy1FaU7MA8N9v365PkzL2shQ; _cfuvid=xY0g0jsWODeFBBGaMoZbN7XBql.ZB445tSUpKYjoncU-1737307894782-0.0.1.1-604800000; _dd_s=rum=0&expire=1737308795477; device_id=%2205fed595-fe36-4e06-99a4-47113bd1e097%22",
-    "origin": "https://opensea.io",
-    "referer": "https://opensea.io/",
-    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-    "x-build-id": "9a95c67df5781dd2a51fe235f361a501d097c8c3",
-    "sec-ch-ua": "\"Chromium\";v=\"131\", \"Not_A Brand\";v=\"24\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "\"Linux\"",
-    "x-app-id": "opensea-web",
-    "x-signed-query": "3f66478347316ba769d9f55425c2974791bd4980bd2d9158b1a2a2e764355674"
-  },
-  "cookies": [
-    {
-      "name": "__os_session",
-      "value": "eyJpZCI6IjczYzRhZGY0LWU4OTUtNGE2NC04MDA3LTg4MjE1MzhlMDU3NSJ9",
-      "domain": "opensea.io",
-      "path": "/",
-      "expires": 1771867894.875789,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "__os_session.sig",
-      "value": "Fdbbmopw7ertg14_jrg4XDDxFsz4PfsRgRJ9rT4799M",
-      "domain": "opensea.io",
-      "path": "/",
-      "expires": 1771867894.875948,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "__cf_bm",
-      "value": "lztdB5l.046eqegKWxw3aD4ash2CerJlz8cfCWuz5eg-1737307894-1.0.1.1-xHFpfzhLOydQQTvegmg7pVAai2auVnDx1s2HtbEb5XNZPSD_BBvilPBU4bGuD_Oy1FaU7MA8N9v365PkzL2shQ",
-      "domain": ".opensea.io",
-      "path": "/",
-      "expires": 1737309694.875968,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
-      "name": "_cfuvid",
-      "value": "xY0g0jsWODeFBBGaMoZbN7XBql.ZB445tSUpKYjoncU-1737307894782-0.0.1.1-604800000",
-      "domain": ".opensea.io",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
-      "name": "_dd_s",
-      "value": "rum=0&expire=1737308795477",
-      "domain": "opensea.io",
-      "path": "/",
-      "expires": 1737308795,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Strict"
-    },
-    {
-      "name": "device_id",
-      "value": "%2205fed595-fe36-4e06-99a4-47113bd1e097%22",
-      "domain": "opensea.io",
-      "path": "/",
-      "expires": 1771867895,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Strict"
-    },
-    {
-      "name": "AMP_ddd6ece4d5",
-      "value": "JTdCJTIyZGV2aWNlSWQlMjIlM0ElMjIwNWZlZDU5NS1mZTM2LTRlMDYtOTlhNC00NzExM2JkMWUwOTclMjIlMkMlMjJzZXNzaW9uSWQlMjIlM0ExNzM3MzA3ODk2MDI0JTJDJTIyb3B0T3V0JTIyJTNBZmFsc2UlMkMlMjJsYXN0RXZlbnRUaW1lJTIyJTNBMTczNzMwNzg5NjAyNCU3RA==",
-      "domain": ".opensea.io",
-      "path": "/",
-      "expires": 1768843896,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "AMP_MKTG_ddd6ece4d5",
-      "value": "JTdCJTdE",
-      "domain": ".opensea.io",
-      "path": "/",
-      "expires": 1768843896,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
+    "TOP_RANKINGS": {
+        "url": "https://opensea.io/__api/graphql/",
+        "method": "POST",
+        "headers": {
+            "accept": "*/*",
+            "content-type": "application/json",
+            "cookie": "__os_session=eyJpZCI6ImU5N2NmY2JmLWVlZTktNGZjMC04NDFiLWNmMzZkNDY1YTBjNiJ9; __os_session.sig=vWTSjsqjVwvmbU-zUj9sVs1sLR2X-lR_snlfTYkpDX0; __cf_bm=Ja5GvvcQnoJerbj70cfzcmSsLx6fUv8ymAHnQbjaHvE-1737361590-1.0.1.1-OOkZnuhYWcao7yxV7uxa6CmKC5HhncJK1oTq5FWm4fhqinf2P_q5djNucNuw6cmYxOyV8l9vmaqHjLJvd0ArPw; _cfuvid=r5NlGHjSd9s7S1or7GB_5u2uK3AQBGuPqC54UsHOZAk-1737361590518-0.0.1.1-604800000; device_id=%221d794ab7-4123-4f12-87d2-911f533cb94b%22; AMP_MKTG_ddd6ece4d5=JTdCJTdE; AMP_ddd6ece4d5=JTdCJTIyZGV2aWNlSWQlMjIlM0ElMjIxZDc5NGFiNy00MTIzLTRmMTItODdkMi05MTFmNTMzY2I5NGIlMjIlMkMlMjJzZXNzaW9uSWQlMjIlM0ExNzM3MzYxNTkxODA0JTJDJTIyb3B0T3V0JTIyJTNBZmFsc2UlMkMlMjJsYXN0RXZlbnRUaW1lJTIyJTNBMTczNzM2MTU5MjA0OCUyQyUyMmxhc3RFdmVudElkJTIyJTNBMSU3RA==; _dd_s=rum=0&expire=1737362491252",
+            "origin": "https://opensea.io",
+            "referer": "https://opensea.io/",
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+            "x-build-id": "9a95c67df5781dd2a51fe235f361a501d097c8c3",
+            "sec-ch-ua": "\"Chromium\";v=\"131\", \"Not_A Brand\";v=\"24\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Linux\"",
+            "x-app-id": "opensea-web",
+            "x-signed-query": "3f66478347316ba769d9f55425c2974791bd4980bd2d9158b1a2a2e764355674"
+        },
+        "cookies": [
+            {
+                "name": "__os_session",
+                "value": "eyJpZCI6ImU5N2NmY2JmLWVlZTktNGZjMC04NDFiLWNmMzZkNDY1YTBjNiJ9",
+                "domain": "opensea.io",
+                "path": "/",
+                "expires": 1771921590.613396,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "__os_session.sig",
+                "value": "vWTSjsqjVwvmbU-zUj9sVs1sLR2X-lR_snlfTYkpDX0",
+                "domain": "opensea.io",
+                "path": "/",
+                "expires": 1771921590.613519,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "__cf_bm",
+                "value": "Ja5GvvcQnoJerbj70cfzcmSsLx6fUv8ymAHnQbjaHvE-1737361590-1.0.1.1-OOkZnuhYWcao7yxV7uxa6CmKC5HhncJK1oTq5FWm4fhqinf2P_q5djNucNuw6cmYxOyV8l9vmaqHjLJvd0ArPw",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": 1737363390.613529,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "None"
+            },
+            {
+                "name": "_cfuvid",
+                "value": "r5NlGHjSd9s7S1or7GB_5u2uK3AQBGuPqC54UsHOZAk-1737361590518-0.0.1.1-604800000",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": -1,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "None"
+            },
+            {
+                "name": "device_id",
+                "value": "%221d794ab7-4123-4f12-87d2-911f533cb94b%22",
+                "domain": "opensea.io",
+                "path": "/",
+                "expires": 1771921591,
+                "httpOnly": false,
+                "secure": true,
+                "sameSite": "Strict"
+            },
+            {
+                "name": "AMP_MKTG_ddd6ece4d5",
+                "value": "JTdCJTdE",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": 1768897591,
+                "httpOnly": false,
+                "secure": false,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "AMP_ddd6ece4d5",
+                "value": "JTdCJTIyZGV2aWNlSWQlMjIlM0ElMjIxZDc5NGFiNy00MTIzLTRmMTItODdkMi05MTFmNTMzY2I5NGIlMjIlMkMlMjJzZXNzaW9uSWQlMjIlM0ExNzM3MzYxNTkxODA0JTJDJTIyb3B0T3V0JTIyJTNBZmFsc2UlMkMlMjJsYXN0RXZlbnRUaW1lJTIyJTNBMTczNzM2MTU5MjA0OCUyQyUyMmxhc3RFdmVudElkJTIyJTNBMSU3RA==",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": 1768897592,
+                "httpOnly": false,
+                "secure": false,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "cf_clearance",
+                "value": "c7ORyRC1WjDMDUDe.Zu9Rb19d9PYFU4X5hfqmVroKc4-1737361592-1.2.1.1-ATJEexewyFPec5xQgVQumiy70dpQCq42GidPlUDrXEDphoXcBw7AMZhKb5kwinLiEqY7l1bh0l7_07r.0qj_CSiJFLDS8IwAjjtPHHam1xOJK2IVbJnBIPPYDwUZ9qUuBlV9T_cKImr9XNgMJB.qVfQGCqexARWGY84uN1evK1Aqq1jp_13.UeIbJ9a2MOShtYOLP6X.8gxSbim6xzHX1hcq1QmNudOEmTkWTT2SaWZcVe3kpv4i_X8Ff88vF.ondPWyK47CS4zbn6pe8d7EirjMQgPn._hjVgqX_W8p6Oo",
+                "domain": ".opensea.io",
+                "path": "/",
+                "expires": 1768897592.178304,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "None"
+            },
+            {
+                "name": "_dd_s",
+                "value": "rum=0&expire=1737362491252",
+                "domain": "opensea.io",
+                "path": "/",
+                "expires": 1737362492,
+                "httpOnly": false,
+                "secure": true,
+                "sameSite": "Strict"
+            }
+        ],
+        "post_data": {
+            "id": "RankingsPageTopQuery",
+            "query": "query RankingsPageTopQuery(\n  $chain: [ChainScalar!]\n  $count: Int!\n  $cursor: String\n  $topCollectionsSortBy: TrendingCollectionSort\n  $categories: [CategoryV2Slug!]!\n  $timeWindow: StatsTimeWindow\n  $floorPricePercentChange: Boolean!\n) {\n  ...RankingsPageTop_data\n}\n\nfragment RankingsPageTop_data on Query {\n  topCollectionsByCategory(after: $cursor, chains: $chain, first: $count, sortBy: $topCollectionsSortBy, categories: $categories) {\n    edges {\n      node {\n        createdDate\n        name\n        slug\n        logo\n        isVerified\n        relayId\n        ...StatsCollectionCell_collection\n        ...collection_url\n        statsV2 {\n          totalQuantity\n        }\n        windowCollectionStats(statsTimeWindow: $timeWindow) {\n          floorPrice {\n            unit\n            eth\n            symbol\n          }\n          numOwners\n          totalSupply\n          totalListed\n          numOfSales\n          volumeChange\n          volume {\n            eth\n            unit\n            symbol\n          }\n        }\n        floorPricePercentChange(statsTimeWindow: $timeWindow) @include(if: $floorPricePercentChange)\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StatsCollectionCell_collection on CollectionType {\n  name\n  logo\n  isVerified\n  slug\n}\n\nfragment collection_url on CollectionType {\n  slug\n  isCategory\n}\n",
+            "variables": {
+                "chain": null,
+                "count": 100,
+                "cursor": null,
+                "topCollectionsSortBy": "ONE_HOUR_VOLUME",
+                "categories": [],
+                "timeWindow": "ONE_HOUR",
+                "floorPricePercentChange": true
+            }
+        }
     }
-  ],
-  "post_data": {
-    "id": "RankingsPageTopQuery",
-    "query": "query RankingsPageTopQuery(\n  $chain: [ChainScalar!]\n  $count: Int!\n  $cursor: String\n  $topCollectionsSortBy: TrendingCollectionSort\n  $categories: [CategoryV2Slug!]!\n  $timeWindow: StatsTimeWindow\n  $floorPricePercentChange: Boolean!\n) {\n  ...RankingsPageTop_data\n}\n\nfragment RankingsPageTop_data on Query {\n  topCollectionsByCategory(after: $cursor, chains: $chain, first: $count, sortBy: $topCollectionsSortBy, categories: $categories) {\n    edges {\n      node {\n        createdDate\n        name\n        slug\n        logo\n        isVerified\n        relayId\n        ...StatsCollectionCell_collection\n        ...collection_url\n        statsV2 {\n          totalQuantity\n        }\n        windowCollectionStats(statsTimeWindow: $timeWindow) {\n          floorPrice {\n            unit\n            eth\n            symbol\n          }\n          numOwners\n          totalSupply\n          totalListed\n          numOfSales\n          volumeChange\n          volume {\n            eth\n            unit\n            symbol\n          }\n        }\n        floorPricePercentChange(statsTimeWindow: $timeWindow) @include(if: $floorPricePercentChange)\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StatsCollectionCell_collection on CollectionType {\n  name\n  logo\n  isVerified\n  slug\n}\n\nfragment collection_url on CollectionType {\n  slug\n  isCategory\n}\n",
-    "variables": {
-      "chain": null,
-      "count": 100,
-      "cursor": null,
-      "topCollectionsSortBy": "TOTAL_VOLUME",
-      "categories": [],
-      "timeWindow": "ALL_TIME",
-      "floorPricePercentChange": false
-    }
-  }
 }
